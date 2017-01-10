@@ -1,22 +1,10 @@
 <template>
   <div class="grudge-list">
-    <li v-for='grudge in grudges'>
-      <h3 class='reminder-title'>{{ grudge.name }}</h3>
-      <!-- <span class='date-button'>
-        <span class='reminder-dates'>
-          <span class='due'>
-            {{ formatDate(reminder.due) }}
-          </span><br />
-          <span class='due2'>
-            {{ formatDate(reminder.alternateNotification) }}
-          </span>
-        </span>
-        <button
-          v-on:click='deleteReminder(reminder.id)'
-          class='remove-button'
-        >✖️</button>
-      </span> -->
-    </li>
+    <ul>
+      <li v-for='grudge in grudges'>
+        <h3 class='offender-name'>{{ grudge.name }}</h3>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -35,5 +23,7 @@ export default {
 </script>
 
 <style scoped>
-
+  li {
+    list-style: none;
+  }
 </style>
