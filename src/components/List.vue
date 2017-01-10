@@ -54,6 +54,13 @@ export default {
         offense });
       console.log(this.grudges);
     },
+    deleteGrudge(id) {
+      for (let i = 0; i < this.grudges.length; i++) {
+        if (this.grudges[i].id === id) {
+          this.grudges.splice(i, 1);
+        }
+      }
+    },
   },
 };
 </script>
