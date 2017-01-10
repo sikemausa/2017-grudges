@@ -7,9 +7,9 @@ const database = require('knex')({
   },
 });
 
-database.schema.hasTable('reminders').then((exists) => {
+database.schema.hasTable('grudges').then((exists) => {
   if (!exists) {
-    return database.schema.createTable('reminders', (t) => {
+    return database.schema.createTable('grudges', (t) => {
       t.increments('id').primary();
       t.text('dateAdded');
       t.string('name', 100);
