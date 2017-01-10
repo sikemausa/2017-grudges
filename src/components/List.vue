@@ -1,6 +1,6 @@
 <template>
   <div class="grudge-list">
-    
+
   </div>
 </template>
 
@@ -8,9 +8,7 @@
 export default {
   data() {
     return {
-      name: '',
-      dateAdded: null,
-      offense: ''
+      grudges: [],
     };
   },
 };
