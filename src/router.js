@@ -1,14 +1,13 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Hello from './components/Hello';
+import Home from './components/Home';
+import List from './components/List';
 
 Vue.use(VueRouter);
 
-const Home = { template: '<div>Hello!!!!!,</div>' };
-
 const routes = [
-  { path: '/', component: Hello },
-  { path: '/home', component: Home },
+  { path: '/', component: Home },
+  { path: '/List', component: List },
 ];
 
 /* eslint-disable no-new */
