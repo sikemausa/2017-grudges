@@ -3,15 +3,21 @@
     <add-grudge
       :addGrudge = 'addGrudge'
     ></add-grudge>
+    <grudge-list
+      :grudges = 'grudges'
+      :deleteGrudge = 'deleteGrudge'
+    ></grudge-list>
   </div>
 </template>
 
 <script>
 import AddGrudge from './AddGrudge';
+import GrudgeList from './GrudgeList';
 
 export default {
   components: {
     AddGrudge,
+    GrudgeList,
   },
   data() {
     return {
