@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -8,35 +9,30 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.locals.title = 'Grudge List';
 app.locals.grudges = [];
 
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+});
+
 app.get('/', (request, response) => {
   response.send('Hello World!');
-  console.log(response);
 });
 
 app.get('/grudges', (request, response) => {
-    response.send(app.locals.urls);
+    response.send(app.locals.grudges);
 });
 
-app.post('/urls', (request, response) => {
-  const data = request.body;
-  data.url = data.url;
-  data.clicks = data.clicks;
-  data.date = data.date || Date.now();
-  app.locals.urls.push(data);
-  response.status(201).send({ data });
-});
+// app.post('/grudges', (request, response) => {
+//   const data = request.body;
+//   data.id = data.id;
+//   data.dateAdded = data.dateAdded;
+//   data.name = data.name;
+//   data.offense = data.offense;
+//   app.locals.grudges.push(data);
+//   response.status(201).send({ data });
+// });
 
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on ${app.get('port')}.`);
-});
-
-app.get('/urls/:shortenedUrl', (request, response) => {
-  let targetUrl = app.locals.urls.filter((url) =>
-  url.shortenedUrl===request.params.shortenedUrl)[0];
-
-  if (!targetUrl) { response.send(`It's Broken.`)}
-  ++targetUrl.clicks;
-  response.redirect( targetUrl.url );
 });
 
 module.exports = server;
