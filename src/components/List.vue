@@ -51,7 +51,8 @@ export default {
         id: Date.now(),
         dateAdded,
         name,
-        offense });
+        offense,
+        forgiven: false });
       console.log(this.grudges);
     },
     deleteGrudge(id) {
