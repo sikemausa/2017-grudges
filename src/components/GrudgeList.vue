@@ -1,9 +1,11 @@
 <template>
   <div class="grudge-list">
     <ul>
-      <li v-for='grudge in grudges'>
+      <li v-for='grudge in grudges'
         <h3 class='grudge-name'>
-          <router-link :to="{ name: 'jackal', params: {id: grudge.name } }">
+          <router-link
+            :grudge="grudge"
+            :to="{ name: 'jackal', params: {id: grudge.name } }">
             {{grudge.name}}
           </router-link>
         </h3>
@@ -13,16 +15,9 @@
 </template>
 
 <script>
-import moment from 'moment';
 
 export default {
   props: ['deleteGrudge', 'grudges'],
-  methods: {
-    formatDate(date) {
-      if (date !== null) return moment(date).format('MMMM Do YYYY, h:mm');
-      return '';
-    },
-  },
 };
 </script>
 
