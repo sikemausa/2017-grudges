@@ -2,7 +2,7 @@
   <div class="home">
     <h1>Hello!</h1>
     <h2>{{ msg }}</h2>
-    <button><router-link to="/List">PropogHate</router-link></button>
+    <button><router-link to="/List/">PropogHate</router-link></button>
   </div>
 </template>
 
