@@ -2,7 +2,7 @@
   <div class="grudge-list">
     <ul>
       <li v-for='grudge in grudges'>
-        <h3 class='offender-name'>{{ grudge.name }}</h3>
+        <!-- <h3 class='offender-name'><router-link to="/List" + {{ grudge.name }}>{{ grudge.name }}</router-link></h3> -->
       </li>
     </ul>
   </div>
