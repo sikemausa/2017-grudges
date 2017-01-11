@@ -1,17 +1,15 @@
 <template>
   <div class="grudge-stats">
-    
+    <h3>Number of wrong doers: {{ offenderCount }}</h3>
+    <h3>Number of unforgiven: {{ unforgivenCount }}</h3>
+    <h3>Number of forgiven: {{ forgivenCount }}</h3>
   </div>
 </template>
 
 <script>
-import moment from 'moment';
-
-
 
 export default {
-  props: ['grudges'],
-  },
+  props: ['offenderCount', 'unforgivenCount', 'forgivenCount'],
 };
 </script>
 

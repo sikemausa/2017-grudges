@@ -3,6 +3,11 @@
     <add-grudge
       :addGrudge = 'addGrudge'
     ></add-grudge>
+    <grudge-stats
+      :offenderCount = 'offenderCount'
+      :unforgivenCount = 'unforgivenCount'
+      :forgivenCount = 'forgivenCount'
+    ></grudge-stats>
     <grudge-list
       :grudges = 'grudges'
       :deleteGrudge = 'deleteGrudge'
@@ -13,15 +18,23 @@
 <script>
 import AddGrudge from './AddGrudge';
 import GrudgeList from './GrudgeList';
+import GrudgeStats from './GrudgeStats';
 
 export default {
+  onCreated() {
+    this.getGrudgeStats();
+  },
   components: {
     AddGrudge,
     GrudgeList,
+    GrudgeStats,
   },
   data() {
     return {
       grudges: [],
+      offenderCount: null,
+      unforgivenCount: null,
+      forgivenCount: null,
     };
   },
   methods: {
@@ -60,6 +73,7 @@ export default {
         offense,
         forgiven: false });
       console.log(this.grudges);
+      this.getGrudgeStats();
     },
     deleteGrudge(id) {
       for (let i = 0; i < this.grudges.length; i++) {
@@ -67,6 +81,18 @@ export default {
           this.grudges.splice(i, 1);
         }
       }
+      this.getGrudgeStats();
+    },
+    getGrudgeStats() {
+      let unforgivenCount = null;
+      for (let i = 0; i < this.grudges.length; i++) {
+        if (this.grudges[i].forgiven === false) {
+          unforgivenCount++;
+        }
+      }
+      this.unforgivenCount = unforgivenCount;
+      this.offenderCount = this.grudges.length;
+      this.forgivenCount = this.grudges.length - unforgivenCount;
     },
   },
 };
